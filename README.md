@@ -1,4 +1,4 @@
-# Ikraa
+# Iqraa
 Cross-Platform RSS/Feed Reader
 my motivation to writing this app is the lack 
 of good readers that focused on really good reading

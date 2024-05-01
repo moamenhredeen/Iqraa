@@ -9,7 +9,7 @@ class AndroidApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: const Text("Ikraa"),),
+        appBar: AppBar(title: const Text("Iqraa"),),
         body: const Center(child: Text("Hello World!"),),
       ),
     );
