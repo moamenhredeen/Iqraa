@@ -1,4 +1,4 @@
-package com.example.ikraa
+package com.example.iqraa
 
 import io.flutter.embedding.android.FlutterActivity
 
