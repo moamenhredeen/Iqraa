@@ -10,7 +10,13 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  fluent_ui: ^4.4.0
+  fluent_ui: ^4.8.7
+  go_router: ^14.0.2
+  # there is version conflict between dart_rss and fluent_ui
+  # they use different versions of the http package
+  # TODO: is there better way to solve conflicts
+  http: any
+  dart_rss: 3.0.1
 
 dev_dependencies:
   flutter_test:
