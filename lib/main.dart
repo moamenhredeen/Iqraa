@@ -1,22 +1,30 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:yaru/yaru.dart';
+import 'package:injectable/injectable.dart';
 
-import 'package:iqraa/ui/shared/default_app.dart';
-import 'package:iqraa/ui/android/android_app.dart';
+import 'package:iqraa/ui/default/app.dart';
+import 'package:iqraa/ui/linux/linux.dart';
 import 'package:iqraa/ui/windows/windows_app.dart';
+import 'package:iqraa/main.config.dart';
 
-void main() {
-  if(Platform.isAndroid){
-    runApp(const AndroidApp());
-  }else if(Platform.isIOS){
-    // run ios app
-  }else if (Platform.isWindows){
-    runApp(WindowsApp());
-  }else if (Platform.isLinux){
-    // run linux app
-  }else if (Platform.isMacOS){
-    // run macos app
-  }else {
-    runApp(const DefaultApp());
-  } 
+@injectableInit
+configureDependencies() => GetIt.instance.init(environment: Environment.dev);
+
+Future<void> main() async {
+  configureDependencies();
+
+  Widget app;
+  if (Platform.isWindows) {
+    app = WindowsApp();
+  } else if (Platform.isLinux) {
+    await YaruWindowTitleBar.ensureInitialized();
+    app = const LinuxApp();
+  } else {
+    app = const App();
+  }
+
+  runApp(app);
 }

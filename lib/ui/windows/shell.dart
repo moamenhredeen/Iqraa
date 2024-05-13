@@ -13,7 +13,8 @@ class Shell extends StatefulWidget {
 }
 
 class _ShellState extends State<Shell> {
-  var topIndex = 1;
+
+  int topIndex = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +34,7 @@ class _ShellState extends State<Shell> {
         displayMode: PaneDisplayMode.auto,
         selected: topIndex,
         onChanged: (index) {
-          setState(() {
-            topIndex = index;
-          });
+          setState(() { topIndex = index; });
         },
         items: [
           PaneItem(
